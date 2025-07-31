@@ -8,7 +8,7 @@ from .models import User,   UserProfile
 class UserRegistrationSerializer(serializers.ModelSerializer):
     # SERIALIZER FOR USER REGISTRATION
     
-    passwprd=serializers.CharField(write_only=True,validators=[validate_password])
+    password=serializers.CharField(write_only=True,validators=[validate_password])
     password_confirm=serializers.CharField(write_only=True)
     
     class Meta:
