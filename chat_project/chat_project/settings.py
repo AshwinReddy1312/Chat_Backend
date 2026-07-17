@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'chat_project.wsgi.application'
 ASGI_APPLICATION = 'chat_project.asgi.application'
 
 # Database
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from django.db.models import Q
 
-from chat_project.accounts import models
+from django.db.models import Q, Count
 from .models import ChatRoom, ChatRoomMembership, Message, MessageReaction, DirectMessage, Conversation
 from accounts.serializers import UserListSerializer
 
@@ -191,7 +191,7 @@ class CreateDirectMessageSerializer(serializers.Serializer):
     
     recipient_id = serializers.IntegerField()
     content = serializers.CharField()
-    message_type = serializers.ChoiceField(choices=DirectMessage.MESSAGE_TYPES, default='text')
+    message_type = serializers.ChoiceField(choices=Message.MESSAGE_TYPES,default='text')
     file_attachment = serializers.FileField(required=False)
     
     def validate_recipient_id(self, value):

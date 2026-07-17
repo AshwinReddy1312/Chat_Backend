@@ -17,7 +17,7 @@ class ChatRoom(models.Model):
     description = models.TextField(blank=True)
     room_type = models.CharField(max_length=10, choices=ROOM_TYPES, default='group')
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='created_rooms')
-    members = models.ManyToManyField(settings.AUTH_USER_MODEL, through='ChatRoomMembership', related_name='chat_rooms')
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL, through='ChatRoomMembership', related_name='chat_rooms',through_fields=('room', 'user'),)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
